@@ -1,0 +1,46 @@
+[1mdiff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml[m
+[1mindex e69de29..36ddb06 100644[m
+[1m--- a/.github/workflows/ci.yml[m
+[1m+++ b/.github/workflows/ci.yml[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32mname: Selenium Automation CI[m
+[32m+[m
+[32m+[m[32mon:[m
+[32m+[m[32m  push:[m
+[32m+[m[32m    branches: [ main ][m
+[32m+[m
+[32m+[m[32mjobs:[m
+[32m+[m[32m  build:[m
+[32m+[m
+[32m+[m[32m    runs-on: ubuntu-latest[m
+[32m+[m
+[32m+[m[32m    steps:[m
+[32m+[m
+[32m+[m[32m      - name: Checkout Repository[m
+[32m+[m[32m        uses: actions/checkout@v3[m
+[32m+[m
+[32m+[m[32m      - name: Setup Java[m
+[32m+[m[32m        uses: actions/setup-java@v3[m
+[32m+[m[32m        with:[m
+[32m+[m[32m          distribution: 'temurin'[m
+[32m+[m[32m          java-version: '17'[m
+[32m+[m
+[32m+[m[32m      - name: Build Project[m
+[32m+[m[32m        run: mvn clean install[m
+[32m+[m
+[32m+[m[32m      - name: Run Tests[m
+[32m+[m[32m        run: mvn test[m
+\ No newline at end of file[m
+[1mdiff --git a/src/main/java/com/amazon/automation/api/pages/HomePage.java b/src/main/java/com/amazon/automation/api/pages/HomePage.java[m
+[1mindex d88827d..01ee2e2 100644[m
+[1m--- a/src/main/java/com/amazon/automation/api/pages/HomePage.java[m
+[1m+++ b/src/main/java/com/amazon/automation/api/pages/HomePage.java[m
+[36m@@ -20,7 +20,7 @@[m [mpublic class HomePage {[m
+         this.driver = driver;[m
+         wait = new WebDriverWait(driver, Duration.ofSeconds(10));[m
+     }[m
+[31m-[m
+[32m+[m[32m    //Method to search an item[m
+     public void searchProduct(String product) {[m
+ [m
+         wait.until(ExpectedConditions.visibilityOfElementLocated(searchBox));[m

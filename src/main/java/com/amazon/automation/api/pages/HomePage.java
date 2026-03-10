@@ -20,7 +20,7 @@ public class HomePage {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
+    //Method to search an item
     public void searchProduct(String product) {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchBox));
